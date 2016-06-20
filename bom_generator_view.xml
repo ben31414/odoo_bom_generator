@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="product_template_kanban_view" model="ir.ui.view">
+      <field name="model">
+	    product.template
+      </field>
+      <field name="name">
+	    Product.template.product.kanban
+      </field>
+      <field name="mode">primary</field>
+      <field name="inherit_id" ref="product.product_template_kanban_view"/>
+      <field name="priority" eval="1"/>
+      <field name="context">
+	    {'product_tmpl_id': active_id}
+	  </field>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <a type="button">
+            <button name="%(bom-generator.bom_generator_action_wizard)d" type="action" class="oe_highlight">
+              <span>Generate BOMs</span>
+            </button>
+          </a>
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>
